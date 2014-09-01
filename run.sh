@@ -1,7 +1,10 @@
 #!/bin/bash
-ES_HOST=${ES_HOST:-\"+window.location.hostname+\"}
+NGINX_PORT=${PORT:-9100}
+ES_HOST=${ES_HOST:-"+\"window.location.hostname\"+"}
 ES_PORT=${ES_PORT:-9200}
-ES_SCHEME=${ES_SCHEME:-\"http\"}
+ES_SCHEME=${ES_SCHEME:-"http"}
+
+cat /etc/nginx/sites-available/default.template | sed s/{{{NGINX_PORT}}}/${NGINX_PORT}/g > /etc/nginx/sites-available/default
 
 cat << EOF > /usr/share/nginx/html/config.js
 define(['settings'],
