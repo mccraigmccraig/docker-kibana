@@ -1,6 +1,6 @@
 #!/bin/bash
 NGINX_PORT=${PORT:-9100}
-ES_HOST=${ES_HOST:-"+\"window.location.hostname\"+"}
+ES_HOST=${ES_HOST:-"\"+window.location.hostname+\""}
 ES_PORT=${ES_PORT:-9200}
 ES_SCHEME=${ES_SCHEME:-"http"}
 
